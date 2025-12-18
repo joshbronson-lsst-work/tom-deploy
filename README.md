@@ -299,19 +299,14 @@ Install Helm onto your machine to install Helm charts on top of
 Kubernetes:
 - https://helm.sh/docs/intro/install/
 
-# Create the Administrative Account
-
-Create the administrative account. `kubectl` transparently manages
-authentication for you. This command runs `manage.py createsuperuser`
-inside the app pod to create a Django superuser. After this, use the
-web UI to sign in with the new account.
-
-	. scripts/common_config.sh
-    kubectl -n "$kubernetes_namespace" exec -it "deploy/tom-${tom_name_lowercase}" -- python manage.py createsuperuser
-
-You only need to perform this action once after the server is running.
-
 # Run the Scripts
+
+Please note that the scripts in this section will generally take about
+thirty to sixty minutes each to run. Because they automate some of the
+tasks related to setting up billing for your instances, there may be
+steps that require manual intervention for your environment. See the
+"Troubleshooting" section below for details about to handle problems
+with the script.
 
 First, set the name of your TOM. This should be the same as the one
 you've created with make-tom.sh. This is required by both scripts run
@@ -372,6 +367,18 @@ correctly above.
 
 Similarly, it should be possible to continuously rerun the script
 while fixing any issues that arise while running it.
+
+# Create the Administrative Account
+
+Create the administrative account. `kubectl` transparently manages
+authentication for you. This command runs `manage.py createsuperuser`
+inside the app pod to create a Django superuser. After this, use the
+web UI to sign in with the new account.
+
+	. scripts/common_config.sh
+    kubectl -n "$kubernetes_namespace" exec -it "deploy/tom-${tom_name_lowercase}" -- python manage.py createsuperuser
+
+You only need to perform this action once after the server is running.
 
 # Connecting to Your Instance
 
