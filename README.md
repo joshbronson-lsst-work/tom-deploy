@@ -263,6 +263,7 @@ it meets the minimum requirements laid out in this subsection.
    environment, the following should be added to a requrements.txt
    file at the base of your TOM, if any of these are not already
    present there, with the exceptions noted in the comments below:
+   ```
    tomtoolkit
    django-storages[google] # only needed for GKE
    google-cloud-storage    # only needed for GKE
@@ -272,6 +273,7 @@ it meets the minimum requirements laid out in this subsection.
    greenlet
    psycopg2-binary
    whitenoise
+   ```
 3. If you don't already have one, copy templates/local\_settings.py
    from this directory into the root directory of your TOM. If you do
    have such a local\_settings.py, you will need to merge the one in
