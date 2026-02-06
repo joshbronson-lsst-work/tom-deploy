@@ -47,7 +47,7 @@ else
     exit 1
 fi
 
-bucket_name="$(echo ${bucket_name:-tom-${tom_name}-data-products} | tr '[A-Z]' '[a-z]')"
+bucket_name="$(echo ${bucket_name:-tom-${tom_name}-data-products} | tr '[A-Z_]' '[a-z-]')"
 
 proj_descr=${proj_descr:-"TOM Project"}
 cluster_name=${cluster_name:-tom-cluster}
