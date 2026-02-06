@@ -13,12 +13,7 @@ set -x
 if aws s3api head-bucket --bucket "$bucket_name" &>/dev/null; then
   echo "| OK. S3 bucket ${bucket_name} exists."
 else
-  if [ "$region" = "us-east-1" ]; then
-      extra_args=()
-  else
-      extra_args=(--create-bucket-configuration LocationConstraint="$region")
-  fi
-  aws s3api create-bucket --bucket "$bucket_name" --acl private "${extra_args[@]}" | cat
+  aws s3api create-bucket --bucket "$bucket_name" --acl private | cat
 fi
 
 aws s3api put-bucket-cors	\
